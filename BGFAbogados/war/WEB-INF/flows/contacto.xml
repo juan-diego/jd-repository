@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<flow xmlns="http://www.springframework.org/schema/webflow"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/webflow
+		http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
+
+	<!-- If not specified, the start state is the first state specified. -->
+	<view-state id="example" view="contacto">
+		<transition on="done" to="done" />
+	</view-state>
+
+	<!-- See http://forum.springframework.org/showthread.php?t=51240 -->
+	<!-- Suppress leading slash to go servlet-relative? (Check docs) -->
+	<!-- View applies only when directly called; calling flows ignore it? -->
+	<end-state id="done" view="externalRedirect:contextRelative:/index.xhtml" />
+</flow>

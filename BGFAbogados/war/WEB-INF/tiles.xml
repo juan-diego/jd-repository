@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+	<definition name="base.definition" template="/WEB-INF/layouts/layout.jsp">
+		<put-attribute name="title" value="" />
+		<put-attribute name="body" value="" />
+	</definition>
+
+	<definition name="index" extends="base.definition">
+		<put-attribute name="title" value="BGF Abogados" />
+		<put-attribute name="body" value="/WEB-INF/jsp/index.jsp" />
+	</definition>
+	
+	<definition name="contacto" extends="base.definition">
+		<put-attribute name="title" value="Contacto" />
+		<put-attribute name="body" value="/WEB-INF/jsp/contacto.jsp" />
+	</definition>
+	
+	<definition name="localizacion" extends="base.definition">
+		<put-attribute name="title" value="Localizacion" />
+		<put-attribute name="body" value="/WEB-INF/jsp/localizacion.jsp" />
+	</definition>
+	
+	<definition name="materias" extends="base.definition">
+		<put-attribute name="title" value="Materias" />
+		<put-attribute name="body" value="/WEB-INF/jsp/materias.jsp" />
+	</definition>
+	
+	<definition name="quienes-somos" extends="base.definition">
+		<put-attribute name="title" value="Quienes somos" />
+		<put-attribute name="body" value="/WEB-INF/jsp/quienes-somos.jsp" />
+	</definition>
+
+	<definition name="example" extends="base.definition">
+		<put-attribute name="title" value="Webflow Example" />
+		<put-attribute name="body" value="/WEB-INF/jsp/example.jsp" />
+	</definition>
+
+</tiles-definitions>
