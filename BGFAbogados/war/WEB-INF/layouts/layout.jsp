@@ -2,12 +2,21 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-16" />
+	<meta http-equiv="Pragma" content="no-cache" />
+		
+		<meta name="author" content="Juan D." />
+		<meta name="Publisher" content="BGF Abogados" />
+		<meta name="Copyright" content="BGF Abogados" />
+		<meta name="Robots" content="all" />
+		<meta name="Audience" content="all" />
+		<meta name="description" content="Asesoramiento jurídico y solución a los problemas legales, en una extensa variedad de disciplinas jurídicas." />
+		<meta name="keywords" content="abogados, oviedo, abogados oviedo, bgf abogados, bgf, civil, penal, administrativo, laboral, mercantil." />
+		<meta name="Pagetopic" content="Página de inicio" />
+		<meta name="Pagetype" content="homepage" />
+		
 	<title>BGF Abogados</title>
-	<meta name="description"
-		content="Asesoramiento jurÃŒdico y soluciÃ›n a los problemas legales, en una extensa variedad de disciplinas jurÃŒdicas." />
-	<meta name="keywords"
-		content="abogados, oviedo, abogados oviedo, bgf abogados, bgf, civil, penal, administrativo, laboral, mercantil." />
-	<meta name="author" content="BGF Abogados" />
+
 	<link href="css/bgfabogados.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -15,14 +24,17 @@
 		<table width="780" border="0" cellpadding="0" cellspacing="0"
 			class="fondo">
 			<tr>
-				<td height="30" colspan="3" valign="top" class="menu"><div
-						class="menuw">
-						<a href="index.xhtml">Inicio</a>
-						<a href="quienes-somos.xhtml">&iquest;Qui&eacute;nes somos?</a>
-						<a href="materias.xhtml">Materias</a>
-						<a href="localizacion.xhtml">Localizaci&oacute;n</a>
-						<a href="contacto.xhtml">Contacto</a>
-					</div></td>
+				<td height="30" colspan="3" valign="top" class="menu">
+					<div class="menuw">
+						<ul id="menu">
+							<li><a href="index.xhtml">Inicio</a></li>
+							<li><a href="quienes-somos.xhtml">Quiénes somos</a></li>
+							<li><a href="materias.xhtml">Materias</a></li>
+							<li><a href="localizacion.xhtml">Localización</a></li>
+							<li><a href="contacto.xhtml">Contacto</a></li>
+						</ul>
+					</div>
+				</td>
 			</tr>
 			<tr>
 				<td height="100" colspan="3" valign="top" class="header">
