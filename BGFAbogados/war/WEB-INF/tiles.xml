@@ -33,9 +33,4 @@
 		<put-attribute name="body" value="/WEB-INF/jsp/quienes-somos.jsp" />
 	</definition>
 
-	<definition name="example" extends="base.definition">
-		<put-attribute name="title" value="Webflow Example" />
-		<put-attribute name="body" value="/WEB-INF/jsp/example.jsp" />
-	</definition>
-
 </tiles-definitions>
