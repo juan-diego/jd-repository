@@ -20,6 +20,8 @@
 	<!-- ================================================================== -->
 
 	<context:component-scan base-package="es.bgfabogados.web.controller.impl" />
+	<context:component-scan base-package="es.bgfabogados.web.delegate.impl" />
+	<context:component-scan base-package="es.bgfabogados.web.service.impl" />
 
 	<!-- ================================================================== -->
 	<!-- Spring MVC stuff -->

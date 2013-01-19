@@ -36,11 +36,11 @@
 			<h1>BGF Abogados</h1>
 		</div>
 		<div class="pictures">
-			<a href="materias.php#civil"><img src="images/civil.jpg" /></a> <a
-				href="materias.php#penal"><img src="images/penal.jpg" /></a> <a
-				href="materias.php#admin"><img src="images/administrativa.jpg" /></a>
-			<a href="materias.php#laboral"><img src="images/laboral.jpg" /></a>
-			<a href="materias.php#mercantil"><img src="images/mercantil.jpg" /></a>
+			<a href="materias.xhtml#civil"><img src="images/civil.jpg" /></a> <a
+				href="materias.xhtml#penal"><img src="images/penal.jpg" /></a> <a
+				href="materias.xhtml#admin"><img src="images/administrativa.jpg" /></a>
+			<a href="materias.xhtml#laboral"><img src="images/laboral.jpg" /></a>
+			<a href="materias.xhtml#mercantil"><img src="images/mercantil.jpg" /></a>
 		</div>
 		<div class="body">
 			<div class="bodyContainer">

@@ -1,12 +1,12 @@
 <h2>Materias</h2>
-<h3>Civil:</h3>
+<h3 id="civil">Civil:</h3>
 <div>
 	<ul>
-		<li>Accidentes de Tr&aacute;fico</li>
-		<li>Arrendamientos urbanos y r&uacute;sticos.</li>
+		<li>Accidentes de Tráfico</li>
+		<li>Arrendamientos urbanos y rústicos.</li>
 		<li>Comunidades de propietarios.</li>
-		<li>Redacci&oacute;n de contratos.</li>
-		<li>Reclamaci&oacute;n de cantidades.</li>
+		<li>Redacción de contratos.</li>
+		<li>Reclamación de cantidades.</li>
 		<li>Herencias y Testamentos.</li>
 		<li>Divorcios y separaciones.</li>
 		<li>Ruidos.</li>
@@ -16,7 +16,7 @@
 	</ul>
 </div>
 
-<h3>Penal:</h3>
+<h3 id="penal">Penal:</h3>
 <div>
 	<ul>
 		<li>Defensa y reclamaci&oacute;n ante los Tribunales de Justicia
@@ -25,7 +25,7 @@
 	</ul>
 </div>
 
-<h3>Administrativo:</h3>
+<h3 id="administrativo">Administrativo:</h3>
 <div>
 	<ul>
 		<li>Interposici&oacute;n y formalizaci&oacute;n de recursos
@@ -41,7 +41,7 @@
 	</ul>
 </div>
 
-<h3>Laboral:</h3>
+<h3 id="laboral">Laboral:</h3>
 <div>
 	<ul>
 		<li>Despidos y expedientes de regulaci&oacute;n de empleos.</li>
@@ -57,9 +57,9 @@
 	</ul>
 </div>
 
-<h3>Mercantil:</h3>
+<h3 id="mercantil">Mercantil:</h3>
 <div>
 	<ul>
-		<li>Asesoramiento jur&iacute;dico integral de la empresa.</li>
+		<li>Asesoramiento jurídico integral de la empresa.</li>
 	</ul>
 </div>
