@@ -16,12 +16,6 @@ public interface IDelivery {
 	boolean isSent();
 	
 	/**
-	 * @return {@code true} if current delivery status implies that it was successfully sent.
-	 * In any other case it will return {@code false}
-	 */
-	boolean getSent();
-	
-	/**
 	 * @return Current delivery status.
 	 */
 	Status getStatus();

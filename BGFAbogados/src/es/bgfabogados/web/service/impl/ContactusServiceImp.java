@@ -60,15 +60,16 @@ public class ContactusServiceImp {
 		email.setSubject("Comentario recogido en la página web");
 		email.setContent(content);
 		
+		IDelivery delivery = null;
 		try {
-			return emailDelegate.send(email);
+			delivery = emailDelegate.send(email);
 		} catch (Exception ex) {
 			LOGGER.log(Level.WARNING, "Contact us eMail could not be sent.", ex);
 			
-			IDelivery delivery = new DeliveryImpl();
+			delivery = new DeliveryImpl();
 			delivery.setStatus(IDelivery.Status.Failed);
-			return delivery;
 		}
+		return delivery;
 	}
 
 	/**

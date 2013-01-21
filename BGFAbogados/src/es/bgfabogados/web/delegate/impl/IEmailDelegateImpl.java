@@ -41,6 +41,6 @@ public class IEmailDelegateImpl implements IEmailDelegate {
 	public IDelivery send(IEmail eMail) {
 		IDelivery delivery = new DeliveryImpl();
 		delivery.setStatus(IDelivery.Status.Success);
-		return null;
+		return delivery;
 	}
 }

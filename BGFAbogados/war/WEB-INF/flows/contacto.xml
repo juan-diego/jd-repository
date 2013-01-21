@@ -22,5 +22,5 @@
 	<!-- See http://forum.springframework.org/showthread.php?t=51240 -->
 	<!-- Suppress leading slash to go servlet-relative? (Check docs) -->
 	<!-- View applies only when directly called; calling flows ignore it? -->
-	<end-state id="done" view="externalRedirect:contextRelative:/index.xhtml" />
+	<end-state id="done" view="externalRedirect:contextRelative:/contacto.xhtml" />
 </flow>
