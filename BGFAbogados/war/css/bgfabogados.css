@@ -71,3 +71,15 @@ body {
 	background-image: url(../images/footer.jpg);
 	background-color: #F2FBFE;
 }
+
+.error {
+	color: red;
+}
+
+/********************/
+/* Contact Us */
+/********************/
+.contactus input.error,
+.contactus textarea.error {
+	border: 1px solid red;
+} 

@@ -14,6 +14,14 @@
 	<!-- This activates post-processors for annotation-based config -->
 	<!-- http://www.infoq.com/articles/spring-2.5-part-1 -->
 	<context:annotation-config />
+	
+	<!-- ================================================================== -->
+	<!-- Resource bundles -->
+	<!-- ================================================================== -->
+	
+	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basename" value="messages" />
+	</bean>
 
 	<!-- ================================================================== -->
 	<!-- Auto-detecting stuff -->
@@ -22,6 +30,7 @@
 	<context:component-scan base-package="es.bgfabogados.web.controller.impl" />
 	<context:component-scan base-package="es.bgfabogados.web.delegate.impl" />
 	<context:component-scan base-package="es.bgfabogados.web.service.impl" />
+	<context:component-scan base-package="es.bgfabogados.web.validator.impl" />
 
 	<!-- ================================================================== -->
 	<!-- Spring MVC stuff -->

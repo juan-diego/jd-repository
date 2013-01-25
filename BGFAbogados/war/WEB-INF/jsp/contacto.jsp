@@ -1,33 +1,45 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<h2>Contacto</h2>
-<div>
-	<ul>
-		<li>TLF: 985 20 93 81</li>
-		<li>FAX: 985 20 93 82</li>
-		<li>Correo electrónico: informacion@bgfabogados.com</li>
-	</ul>
-</div>
-<form:form method="post" action="${flowExecutionUrl}"  commandName="contactusForm">
-	<p>Si quiere también puede utilizar el formulario que le ofrecemos a continuación:</p>
+<div class="contactus">
+	<h2><fmt:message key="contactus.form.titre.contactus"/></h2>
 	<div>
-		<table>
-			<tbody>
-				<tr>
-					<td><label for="nombre">Nombre</label></td>
-					<td><form:input path="name" /></td>
-				</tr>
-				<tr>
-					<td><label for="eMail">Correo electrónico</label></td>
-					<td><form:input path="email" /></td>
-				</tr>
-				<tr>
-					<td><label for="comentario">Comentario</label></td>
-					<td><form:textarea path="comments" /></td>
-				</tr>
-			</tbody>
-		</table>
-		<input type="submit" name="_eventId_send" value="Enviar" />
+		<ul>
+			<li><fmt:message key="contactus.form.field.phone"/>: 985 20 93 81</li>
+			<li><fmt:message key="contactus.form.field.fax"/>: 985 20 93 82</li>
+			<li><fmt:message key="contactus.form.field.email"/>: informacion@bgfabogados.com</li>
+		</ul>
 	</div>
-</form:form>
+	<p><fmt:message key="contaxtus.form.text.enter-your-comments"/>:</p>
+	<form:form method="post" action="${flowExecutionUrl}"  commandName="contactus">
+		<div>
+			<table>
+				<tbody>
+					<tr>
+						<td><label for="nombre"><fmt:message key="contactus.form.field.name"/>:</label></td>
+						<td>
+							<form:input path="name" cssErrorClass="error" />
+							<form:errors path="name" cssClass="error" />
+						</td>
+					</tr>
+					<tr>
+						<td><label for="eMail"><fmt:message key="contactus.form.field.email"/>:</label></td>
+						<td>
+							<form:input path="email" cssErrorClass="error"/>
+							<form:errors path="email" cssClass="error" />
+						</td>
+					</tr>
+					<tr>
+						<td><label for="comentario"><fmt:message key="contactus.form.field.comments"/>:</label></td>
+						<td>
+							<form:textarea path="comments" cssErrorClass="error"/>
+							<form:errors path="comments" cssClass="error" />
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<input type="submit" name="_eventId_send" value="<fmt:message key="common.form.send"/>" />
+		</div>
+	</form:form>
+</div>
