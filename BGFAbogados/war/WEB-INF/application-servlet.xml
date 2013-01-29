@@ -16,11 +16,19 @@
 	<context:annotation-config />
 	
 	<!-- ================================================================== -->
-	<!-- Resource bundles -->
+	<!-- Resources -->
 	<!-- ================================================================== -->
 	
 	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
 		<property name="basename" value="messages" />
+	</bean>
+	
+	<bean id="emailHtmlTemplate" class="org.springframework.core.io.ClassPathResource">
+		<constructor-arg value="email_html_template.html" />
+	</bean>
+	
+	<bean id="emailTextTemplate" class="org.springframework.core.io.ClassPathResource">
+		<constructor-arg value="email_text_template.txt" />
 	</bean>
 
 	<!-- ================================================================== -->
