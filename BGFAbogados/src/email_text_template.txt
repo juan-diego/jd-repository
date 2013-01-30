@@ -1,1 +1,5 @@
-Texto
+El siguiente mensaje fue enviado por ${sender.name} <${sender.email}> desde el formulario de contacto de la página web http://www.bgfabogados.es:
+-------------------------------------------------------------------------------
+${body}
+-------------------------------------------------------------------------------
+

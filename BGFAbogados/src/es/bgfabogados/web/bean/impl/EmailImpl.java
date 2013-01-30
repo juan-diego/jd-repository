@@ -3,6 +3,7 @@ package es.bgfabogados.web.bean.impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import es.bgfabogados.web.bean.IContact;
 import es.bgfabogados.web.bean.IEmail;
 import es.bgfabogados.web.bean.IEmailContent;
 
@@ -15,7 +16,7 @@ public class EmailImpl implements IEmail {
 	/**
 	 * eMail sender.
 	 */
-	private String sender;
+	private IContact sender;
 	
 	/**
 	 * eMail destinations.
@@ -36,8 +37,8 @@ public class EmailImpl implements IEmail {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void setSender(String eMailAddr) {
-		this.sender = eMailAddr;
+	public void setSender(IContact contact) {
+		this.sender = contact;
 	}
 
 	/**
@@ -104,7 +105,7 @@ public class EmailImpl implements IEmail {
 	 *  {@inheritDoc}
 	 */
 	@Override
-	public String getSender() {
+	public IContact getSender() {
 		return this.sender;
 	}
 

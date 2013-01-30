@@ -6,9 +6,11 @@ import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import es.bgfabogados.web.bean.IContact;
 import es.bgfabogados.web.bean.IDelivery;
 import es.bgfabogados.web.bean.IEmail;
 import es.bgfabogados.web.bean.IEmailContent;
+import es.bgfabogados.web.bean.impl.ContactImpl;
 import es.bgfabogados.web.bean.impl.DeliveryImpl;
 import es.bgfabogados.web.delegate.IEmailDelegate;
 import es.bgfabogados.web.form.IForm;
@@ -56,8 +58,12 @@ public class ContactusServiceImp {
 		IEmailContent content = emailDelegate.newContent();
 		content.setContent(form.getComments());
 		
+		IContact contact = new ContactImpl();
+		contact.setName(form.getName());
+		contact.setEmail(form.getEmail());
+		
 		IEmail email = emailDelegate.newEmail();
-		email.setSubject("Comentario recogido en la página web");
+		email.setSender(contact);
 		email.setContent(content);
 		
 		IDelivery delivery = null;

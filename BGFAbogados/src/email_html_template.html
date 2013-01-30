@@ -1,1 +1,13 @@
-<html name="@[NAME]"/>
+<html>
+	<body>
+		<div class="message">
+			<p class="subject">
+				El siguiente mensaje fue enviado por ${sender.name} &lt<a href="mailto:;${sender.email}">${sender.email}</a>&gt; desde el formulario
+				de contacto de la página web <a href="http://www.bgfabogados.es">BGF Abogados</a>.
+			</p>
+			<p class="body">
+				${body}
+			</p>
+		</div>
+	</body>
+</html>

@@ -12,6 +12,8 @@ import es.bgfabogados.web.bean.IEmailTemplate;
 
 public class EmailTemplateImpl implements IEmailTemplate {
 
+	private static final String EMPTY_STRING = "";
+	
 	/**
 	 * The HTML template.
 	 */
@@ -73,7 +75,11 @@ public class EmailTemplateImpl implements IEmailTemplate {
 		}
 		String content = template;
 		for(String regexKey : replacements.keySet()) {
-			content = content.replaceAll(regexKey, replacements.get(regexKey));
+			String replacement = replacements.get(regexKey);
+			if (replacement == null) {
+				replacement = EMPTY_STRING;
+			}
+			content = content.replaceAll(regexKey, replacement);
 		}
 		return content;
 	}
