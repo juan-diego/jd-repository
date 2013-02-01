@@ -21,7 +21,7 @@ public class EmailImpl implements IEmail {
 	/**
 	 * eMail destinations.
 	 */
-	private List<String> recipients;
+	private List<String> recipients = new ArrayList<String>();
 	
 	/**
 	 * eMail subject.
@@ -54,19 +54,20 @@ public class EmailImpl implements IEmail {
 	 */
 	@Override
 	public void setRecipient(String eMailAddr) {
-		if (eMailAddr == null) {
-			this.recipients = null;;
+		if (eMailAddr != null) {
+			this.recipients.add(eMailAddr);
 		}
-		this.recipients = new ArrayList<String>();
-		this.recipients.add(eMailAddr);
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void setRecipients(List<String> eMailAddr) {
-		this.recipients = eMailAddr;
+	public void setRecipients(List<String> list) {
+		if (list == null) {
+			throw new IllegalArgumentException("Argument list can not be null.");
+		}
+		this.recipients = new ArrayList<String>(list);
 	}
 
 	/**
@@ -107,6 +108,19 @@ public class EmailImpl implements IEmail {
 	@Override
 	public IContact getSender() {
 		return this.sender;
+	}
+	
+	/**
+	 *  {@inheritDoc}
+	 */
+	@Override
+	public void setSender(String address) {
+		if (address == null) {
+			this.sender = null;
+		} else {
+			this.sender = new ContactImpl();
+			this.sender.setEmail(address);
+		}
 	}
 
 }

@@ -31,6 +31,13 @@
 						</td>
 					</tr>
 					<tr>
+						<td><label for="subject"><fmt:message key="contactus.form.field.subject"/>:</label></td>
+						<td>
+							<form:input path="subject" cssErrorClass="error"/>
+							<form:errors path="subject" cssClass="error" />
+						</td>
+					</tr>
+					<tr>
 						<td><label for="comentario"><fmt:message key="contactus.form.field.comments"/>:</label></td>
 						<td>
 							<form:textarea path="comments" cssErrorClass="error"/>

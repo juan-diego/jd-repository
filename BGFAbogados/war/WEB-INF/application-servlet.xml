@@ -14,21 +14,34 @@
 	<!-- This activates post-processors for annotation-based config -->
 	<!-- http://www.infoq.com/articles/spring-2.5-part-1 -->
 	<context:annotation-config />
-	
+
 	<!-- ================================================================== -->
 	<!-- Resources -->
 	<!-- ================================================================== -->
-	
-	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+
+	<bean id="messageSource"
+		class="org.springframework.context.support.ResourceBundleMessageSource">
 		<property name="basename" value="messages" />
 	</bean>
-	
-	<bean id="emailHtmlTemplate" class="org.springframework.core.io.ClassPathResource">
-		<constructor-arg value="email_html_template.html" />
-	</bean>
-	
-	<bean id="emailTextTemplate" class="org.springframework.core.io.ClassPathResource">
-		<constructor-arg value="email_text_template.txt" />
+
+	<!-- ================================================================== -->
+	<!-- Services -->
+	<!-- ================================================================== -->
+
+	<bean
+		class="es.bgfabogados.web.service.impl.ContactusServiceImpl.Configuration">
+		<property name="textTemplate">
+			<bean class="org.springframework.core.io.ClassPathResource">
+				<constructor-arg value="email_text_template.txt" />
+			</bean>
+		</property>
+		<property name="htmlTemplate">
+			<bean class="org.springframework.core.io.ClassPathResource">
+				<constructor-arg value="email_html_template.html" />
+			</bean>
+		</property>
+		<property name="toAddress" ref="webappAddress" />		
+		<property name="fromAddress" ref="supportAddress" />
 	</bean>
 
 	<!-- ================================================================== -->
@@ -56,7 +69,7 @@
 		<property name="viewClass">
 			<value>
 				org.springframework.web.servlet.view.tiles2.TilesView
-        </value>
+			</value>
 		</property>
 	</bean>
 	<bean id="tilesConfigurer"

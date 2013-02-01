@@ -35,6 +35,11 @@ public class ContactusValidator {
 					code("contactus.validator.error-invalid-email").build());
 		}
 		// Comment
+		if (isEmpty(form.getSubject())) {
+			messages.addMessage(new MessageBuilder().error().source("subject").
+					code("contactus.validator.error-empty-subject").build());
+		}
+		// Comment
 		if (isEmpty(form.getComments())) {
 			messages.addMessage(new MessageBuilder().error().source("comments").
 					code("contactus.validator.error-empty-comments").build());
