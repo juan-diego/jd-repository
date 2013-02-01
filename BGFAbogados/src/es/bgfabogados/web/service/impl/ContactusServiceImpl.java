@@ -1,9 +1,12 @@
 package es.bgfabogados.web.service.impl;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import es.bgfabogados.web.bean.IContact;
@@ -22,24 +25,52 @@ import es.bgfabogados.web.form.impl.ContactusFormImpl;
  * @author juan-diego
  */
 @Service("contactusService")
-public class ContactusServiceImp {
+public class ContactusServiceImpl {
 	
 	/**
 	 * Logger.
 	 */
-	private static final Logger LOGGER = Logger.getLogger(ContactusServiceImp.class.getName());
+	private static final Logger LOGGER = Logger.getLogger(ContactusServiceImpl.class.getName());
 	
+	/**
+	 * Address where email will be addressed.
+	 */
+	private IContact emailDestination;
+
 	/**
 	 * Delegate used for sending eMails.
 	 */
-	@Autowired(required=true)
 	private IEmailDelegate emailDelegate;
+	
+	/**
+	 * @param emailDestination the emailDestination to set
+	 */
+	@Autowired(required=true)
+	@Qualifier("contactusDestination")
+	public void setEmailDestination(IContact emailDestination) {
+		this.emailDestination = emailDestination;
+	}
 	
 	/**
 	 * @return A new uninitialized instance of {@link ContactusFormImpl}.
 	 */
 	public IForm newForm() {
 		return new ContactusFormImpl();
+	}
+
+	/**
+	 * @return the emailDelegate
+	 */
+	public IEmailDelegate getEmailDelegate() {
+		return emailDelegate;
+	}
+
+	/**
+	 * @param emailDelegate the emailDelegate to set
+	 */
+	@Autowired(required=true)
+	public void setEmailDelegate(IEmailDelegate emailDelegate) {
+		this.emailDelegate = emailDelegate;
 	}
 	
 	/**
@@ -62,9 +93,13 @@ public class ContactusServiceImp {
 		contact.setName(form.getName());
 		contact.setEmail(form.getEmail());
 		
+		List<String> recipients = new ArrayList<String>();
+		recipients.add(emailDestination.getEmail());
+		
 		IEmail email = emailDelegate.newEmail();
 		email.setSender(contact);
 		email.setContent(content);
+		email.setRecipients(recipients);
 		
 		IDelivery delivery = null;
 		try {
@@ -76,19 +111,5 @@ public class ContactusServiceImp {
 			delivery.setStatus(IDelivery.Status.Failed);
 		}
 		return delivery;
-	}
-
-	/**
-	 * @return the emailDelegate
-	 */
-	public IEmailDelegate getEmailDelegate() {
-		return emailDelegate;
-	}
-
-	/**
-	 * @param emailDelegate the emailDelegate to set
-	 */
-	public void setEmailDelegate(IEmailDelegate emailDelegate) {
-		this.emailDelegate = emailDelegate;
 	}
 }

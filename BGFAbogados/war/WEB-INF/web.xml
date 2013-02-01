@@ -29,6 +29,7 @@
 			<param-name>contextConfigLocation</param-name>
 			<param-value>
 	        	/WEB-INF/application-servlet.xml
+	        	/WEB-INF/application-securty.xml
 	        </param-value>
 		</init-param>
 	</servlet>

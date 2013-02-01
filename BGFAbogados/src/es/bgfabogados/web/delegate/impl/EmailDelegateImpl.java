@@ -1,8 +1,20 @@
 package es.bgfabogados.web.delegate.impl;
 
 import java.io.IOException;
+import java.text.MessageFormat;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Properties;
+
+import javax.mail.Address;
+import javax.mail.MessagingException;
+import javax.mail.Multipart;
+import javax.mail.Session;
+import javax.mail.internet.AddressException;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeBodyPart;
+import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeMultipart;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -51,6 +63,20 @@ public class EmailDelegateImpl implements IEmailDelegate {
 	 * Template used for composing the emails.
 	 */
 	private IEmailTemplate emailTemplate = new EmailTemplateImpl();
+	
+	/**
+	 * Account used for eMail delivery.
+	 */
+	private Address deliveryAccount;
+
+	/**
+	 * @param deliveryAccount the deliveryAccount to set
+	 */
+	@Autowired(required=true)
+	@Qualifier("deliveryAccount")
+	public void setDeliveryAccount(Address deliveryAccount) {
+		this.deliveryAccount = deliveryAccount;
+	}
 
 	/**
 	 * @param emailHtmlTemplate the emailHtmlTemplate to set. Can not be null.
@@ -96,17 +122,67 @@ public class EmailDelegateImpl implements IEmailDelegate {
 
 	/**
 	 * {@inheritDoc}
+	 * @throws MessagingException IF the eMail could not be sent.
 	 */
 	@Override
-	public IDelivery send(IEmail email) {
+	public IDelivery send(IEmail email) throws MessagingException {
 		Map<String, String> replacements = getReplacements(email);
 		
 		String html = emailTemplate.resolveHtml(replacements);
 		String text = emailTemplate.resolveText(replacements);
 		
 		// TO-DO : Escape HTML characters in HTML template.
-		// TO-DO : Send the email
+		// TO-DO : Validate email.
 		
+		// Initialize message
+		Properties props = new Properties();
+		Session session = Session.getDefaultInstance(props, null);
+		MimeMessage msg = new MimeMessage(session);
+		
+		// Add sender
+		msg.setFrom(deliveryAccount);
+		
+		// Add recipients
+		InternetAddress internetAddress = null;
+		for(String emailAddress : email.getRecipients()) {
+			if (emailAddress != null) {
+				try {
+					internetAddress = new InternetAddress(emailAddress);
+				} catch (AddressException ex) {
+					String error = MessageFormat.format("Recipient address '{0}' is not valid.", emailAddress);
+					throw new IllegalArgumentException(error, ex);
+				}
+				msg.addRecipient(javax.mail.Message.RecipientType.TO, internetAddress);
+			}	
+		}
+		
+		// Validate recipients
+		int numOfRecipients = msg.getRecipients(javax.mail.Message.RecipientType.TO).length;
+		if (numOfRecipients == 0) {
+			throw new IllegalArgumentException("Error compiling eMail's recipients list. Any valid eMail address was found.");
+		}
+
+        // Create the Multipart.  Add BodyParts to it.
+        final Multipart mp = new MimeMultipart();
+		
+		// Unformatted text version
+		if (text!=null && text.length() > 0) {
+	        final MimeBodyPart textPart = new MimeBodyPart();
+	        textPart.setText(text);
+	        mp.addBodyPart(textPart);
+		}
+        // HTML version
+		if (html!=null && html.length() > 0) {
+	        final MimeBodyPart htmlPart = new MimeBodyPart();
+	        htmlPart.setContent(html, "text/html");
+	        mp.addBodyPart(htmlPart);
+		}
+       
+       
+        // Set Multipart as the message's content
+        msg.setContent(mp, "UTF8");
+		
+		// Send message		
 		IDelivery delivery = new DeliveryImpl();
 		delivery.setStatus(IDelivery.Status.Success);
 		return delivery;

@@ -24,8 +24,7 @@ public class ContactImpl implements IContact {
 	 */
 	@Override
 	public String getName() {
-		// TODO Auto-generated method stub
-		return null;
+		return name;
 	}
 
 	/**
@@ -33,8 +32,7 @@ public class ContactImpl implements IContact {
 	 */
 	@Override
 	public String getFamilyName() {
-		// TODO Auto-generated method stub
-		return null;
+		return familyName;
 	}
 
 	/**
@@ -42,8 +40,7 @@ public class ContactImpl implements IContact {
 	 */
 	@Override
 	public String getEmail() {
-		// TODO Auto-generated method stub
-		return null;
+		return email;
 	}
 
 	/**
