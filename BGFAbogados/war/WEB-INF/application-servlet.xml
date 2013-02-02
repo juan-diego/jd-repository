@@ -40,8 +40,8 @@
 				<constructor-arg value="email_html_template.html" />
 			</bean>
 		</property>
-		<property name="toAddress" ref="webappAddress" />		
-		<property name="fromAddress" ref="supportAddress" />
+		<property name="fromAddress" ref="webappAddress" />		
+		<property name="toAddress" ref="supportAddress" />
 	</bean>
 
 	<!-- ================================================================== -->

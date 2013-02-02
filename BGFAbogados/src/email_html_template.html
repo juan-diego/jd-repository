@@ -1,13 +1,67 @@
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<style>
+			body {
+				background-color: white; 
+			}
+			h1 {
+				margin: 0;
+				border-bottom: 1px solid black;
+			}
+			p {
+				margin: 1em 0 1em 0;
+			}
+			.envelope { 
+				margin: 1em;
+				padding: 1em;
+				background-color: #DCE6F1;
+				-moz-border-radius: 10px;
+				border-radius: 10px;
+			}
+			.content {
+				padding: 0 1em 0 1em;
+			}
+			.warn {
+				margin: 1em 0 1em 0;
+				padding: 0 1em 0 1em;
+				color: #9C0006;
+				background-color: #FFC7CE;
+				border: 1px solid #9C0006;
+			}
+			.warn p {
+				margin: 0.2em 0 0.2em 0;
+			}
+			.message {
+				margin: 0.5em 0 0.5em 0;
+				padding: 0 0 0 1em;
+				border-left: 1px solid black;
+			}
+		</style>
+	</head>
 	<body>
-		<div class="message">
-			<p class="subject">
-				El siguiente mensaje fue enviado por ${sender.name} &lt<a href="mailto:;${sender.email}">${sender.email}</a>&gt; desde el formulario
-				de contacto de la p�gina web <a href="http://www.bgfabogados.es">BGF Abogados</a>.
-			</p>
-			<p class="body">
-				${body}
-			</p>
+		<div class="envelope">
+			<h1 class="subject">${subject}</h1>
+			<div class="content">
+				<div class="warn">
+					<p>
+					¡ATENCION!
+					</p>
+					<p>
+					No responda directamente a este correo. El remitente es el formulario de contacto de la página web.
+					</p>
+					<p>
+					Para responder al usuario escríbale un nuevo correo a su dirección: <a href="mailto:${sender.email}">${sender.email}</a>.
+					</p>
+				</div>
+				<p>
+					Mensaje enviado por ${sender.name} &lt;<a href="mailto:${sender.email}">${sender.email}</a>&gt; desde el formulario de contacto de la página web:
+				</p>
+				<div class="message">
+					<pre>${body}</pre>
+				<div>
+			</div>
 		</div>
 	</body>
 </html>

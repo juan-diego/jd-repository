@@ -57,7 +57,7 @@ body {
 }
 
 .bodyContainer {
-	padding: 0 1em;
+	padding: 0 1em 1em 1em;
 	border: 1px solid #CDCDCD;
 	background-image: url(../images/sub.jpg);
 	background-repeat: repeat-x;
@@ -72,7 +72,7 @@ body {
 	background-color: #F2FBFE;
 }
 
-.error {
+.error_messages {
 	color: red;
 }
 
@@ -82,4 +82,26 @@ body {
 .contactus input.error,
 .contactus textarea.error {
 	border: 1px solid red;
-} 
+}
+
+.contactus table {
+	width: 100%;
+}
+
+.contactus table input {
+	width: 50%;
+}
+
+.contactus tr.row_comments td.column_label {
+	padding-top: 0.5em;
+	vertical-align: top;
+}
+
+.contactus td.label_column {
+	width: 20%;
+}
+
+.contactus .row_comments textarea {
+	width: 95%;
+	height: 10em;
+}

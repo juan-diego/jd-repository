@@ -13,35 +13,39 @@
 	</div>
 	<p><fmt:message key="contaxtus.form.text.enter-your-comments"/>:</p>
 	<form:form method="post" action="${flowExecutionUrl}"  commandName="contactus">
+		<div class="error_messages">
+			<ul>
+				<form:errors path="name" cssClass="error" element="li" />
+				<form:errors path="email" cssClass="error" element="li" />
+				<form:errors path="subject" cssClass="error" element="li" />
+				<form:errors path="comments" cssClass="error" element="li" />
+			</ul>
+		</div>
 		<div>
 			<table>
 				<tbody>
 					<tr>
-						<td><label for="nombre"><fmt:message key="contactus.form.field.name"/>:</label></td>
+						<td class="label_column"><label for="nombre"><fmt:message key="contactus.form.field.name"/>:</label></td>
 						<td>
 							<form:input path="name" cssErrorClass="error" />
-							<form:errors path="name" cssClass="error" />
 						</td>
 					</tr>
 					<tr>
-						<td><label for="eMail"><fmt:message key="contactus.form.field.email"/>:</label></td>
+						<td class="label_column"><label for="eMail"><fmt:message key="contactus.form.field.email"/>:</label></td>
 						<td>
 							<form:input path="email" cssErrorClass="error"/>
-							<form:errors path="email" cssClass="error" />
 						</td>
 					</tr>
-					<tr>
-						<td><label for="subject"><fmt:message key="contactus.form.field.subject"/>:</label></td>
-						<td>
+					<tr class="row_subject">
+						<td class="column_label"><label for="subject"><fmt:message key="contactus.form.field.subject"/>:</label></td>
+						<td class="column_field">
 							<form:input path="subject" cssErrorClass="error"/>
-							<form:errors path="subject" cssClass="error" />
 						</td>
 					</tr>
-					<tr>
-						<td><label for="comentario"><fmt:message key="contactus.form.field.comments"/>:</label></td>
-						<td>
+					<tr class="row_comments">
+						<td class="column_label"><label for="comentario"><fmt:message key="contactus.form.field.comments"/>:</label></td>
+						<td class="column_field">
 							<form:textarea path="comments" cssErrorClass="error"/>
-							<form:errors path="comments" cssClass="error" />
 						</td>
 					</tr>
 				</tbody>

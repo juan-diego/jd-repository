@@ -5,6 +5,7 @@ import java.util.Properties;
 
 import javax.mail.MessagingException;
 import javax.mail.Session;
+import javax.mail.Transport;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
@@ -89,8 +90,9 @@ public class EmailDelegateImpl implements IEmailDelegate {
 			throw new IllegalArgumentException("Error compiling eMail's recipients list. Any valid eMail address was found.");
 		}
 
-		msg.setSubject(email.getSubject());
-        msg.setText(email.getContent().getText(), "utf-8", "html");  
+		msg.setSubject(email.getSubject(), "UTF8");
+        msg.setText(email.getContent().getText(), "UTF8", "html");
+        Transport.send(msg);
 		
 		// Send message		
 		IDelivery delivery = new DeliveryImpl();
