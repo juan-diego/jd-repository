@@ -77,6 +77,49 @@ body {
 }
 
 /********************/
+/* Layour */
+/********************/
+div.pictures  {
+	background-image: url("../images/pictures_background.png");
+	background-position: top;
+	background-repeat: repeat-x;
+}
+
+/********************/
+/* Home */
+/********************/
+.home ul.abogados {
+	text-align: center;
+}
+
+.home .abogados li {
+	list-style: none;
+}
+
+/********************/
+/* Home */
+/********************/
+.location .map,
+.location .address {
+	text-align: center;
+}
+
+.location .additional_info {
+	display: none;
+}
+
+.location .map iframe {
+	width: 425px;
+	height: 350px;
+	border: 1px solid #CDCDCD;
+}
+
+.location .map span {
+	color:#0000FF;
+	text-align: left;
+}
+
+/********************/
 /* Contact Us */
 /********************/
 .contactus input.error,
