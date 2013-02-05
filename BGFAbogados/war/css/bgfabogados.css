@@ -53,6 +53,10 @@ body {
 	text-align: center;
 }
 
+.pictures a {
+	text-decoration: none;
+}
+
 .body {
 	padding: 1em;
 }
