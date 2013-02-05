@@ -53,8 +53,10 @@ body {
 	text-align: center;
 }
 
-.pictures a {
+.pictures a,
+.pictures img {
 	text-decoration: none;
+	border: none;
 }
 
 .body {
