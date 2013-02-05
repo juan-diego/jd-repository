@@ -31,7 +31,7 @@ public class ContactusValidator {
 			messages.addMessage(new MessageBuilder().error().source("email").
 					code("contactus.validator.error-empty-email").build());
 		} else if (!applyPattern(VALID_EMAIL_PATTERN, form.getEmail())) {
-			messages.addMessage(new MessageBuilder().warning().source("email").
+			messages.addMessage(new MessageBuilder().error().source("email").
 					code("contactus.validator.error-invalid-email").build());
 		}
 		// Comment
@@ -66,7 +66,7 @@ public class ContactusValidator {
 		if (value == null || value.isEmpty()) {
 			return true;
 		}
-		return pattern.matcher(value).matches();
+		return pattern.matcher(value.trim()).matches();
 	}
 
 }

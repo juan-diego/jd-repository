@@ -4,6 +4,7 @@
        "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
 <tiles-definitions>
 	<definition name="base.definition" template="/WEB-INF/layouts/layout.jsp">
+		<put-attribute name="doctype" value="&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Strict//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;&gt;" />
 		<put-attribute name="title" value="" />
 		<put-attribute name="body" value="" />
 	</definition>
@@ -24,6 +25,7 @@
 	</definition>
 	
 	<definition name="localizacion" extends="base.definition">
+		<put-attribute name="doctype" value="&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;" />
 		<put-attribute name="title" value="Localizacion" />
 		<put-attribute name="body" value="/WEB-INF/jsp/localizacion.jsp" />
 	</definition>
@@ -36,6 +38,11 @@
 	<definition name="quienes-somos" extends="base.definition">
 		<put-attribute name="title" value="Quienes somos" />
 		<put-attribute name="body" value="/WEB-INF/jsp/quienes-somos.jsp" />
+	</definition>
+	
+	<definition name="404" extends="base.definition">
+		<put-attribute name="title" value="Página no econtrada" />
+		<put-attribute name="body" value="/WEB-INF/jsp/404.jsp" />
 	</definition>
 
 </tiles-definitions>

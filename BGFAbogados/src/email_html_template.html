@@ -40,27 +40,27 @@
 			}
 		</style>
 	</head>
-	<body>
-		<div class="envelope">
-			<h1 class="subject">${subject}</h1>
-			<div class="content">
-				<div class="warn">
-					<p>
+	<body style="background-color: white;">
+		<div class="envelope" style="margin: 1em; padding: 1em; background-color: #DCE6F1; -moz-border-radius: 10px; border-radius: 10px;">
+			<h1 class="subject" style="margin: 0; border-bottom: 1px solid black;">${subject}</h1>
+			<div class="content" style="padding: 0 1em 0 1em;">
+				<div class="warn" style="margin: 1em 0 1em 0; padding: 0 1em 0 1em; color: #9C0006; background-color: #FFC7CE; border: 1px solid #9C0006;">
+					<p style="margin: 0.2em 0 0.2em 0;">
 					¡ATENCION!
 					</p>
-					<p>
+					<p style="margin: 0.2em 0 0.2em 0;">
 					No responda directamente a este correo. El remitente es el formulario de contacto de la página web.
 					</p>
-					<p>
+					<p style="margin: 0.2em 0 0.2em 0;">
 					Para responder al usuario escríbale un nuevo correo a su dirección: <a href="mailto:${sender.email}">${sender.email}</a>.
 					</p>
 				</div>
-				<p>
+				<p style="margin: 1em 0 1em 0;">
 					Mensaje enviado por ${sender.name} &lt;<a href="mailto:${sender.email}">${sender.email}</a>&gt; desde el formulario de contacto de la página web:
 				</p>
-				<div class="message">
+				<div class="message" style="margin: 0.5em 0 0.5em 0; padding: 0 0 0 1em; border-left: 1px solid black;">
 					<pre>${body}</pre>
-				<div>
+				</div>
 			</div>
 		</div>
 	</body>

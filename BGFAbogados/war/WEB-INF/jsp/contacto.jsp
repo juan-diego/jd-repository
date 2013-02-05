@@ -3,7 +3,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <div class="contactus">
-	<h2><fmt:message key="contactus.form.titre.contactus"/></h2>
+	<h2><fmt:message key="contactus.form.title.contactus"/></h2>
 	<div class="vcard">
 		<label for="contact_details" class="org">BGF Abogados</label>:
 		<ul id="contact_details">

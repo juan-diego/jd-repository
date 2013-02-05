@@ -1,4 +1,5 @@
-<h2>Bienvenido</h2>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<h2><fmt:message key="home.page.title"/></h2>
 <div class="home">
 	<p>
 		BGF Abogados, nace para dar respuesta a las necesidades de

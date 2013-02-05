@@ -1,4 +1,5 @@
-<h2>Quiénes somos</h2>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<h2><fmt:message key="aboutus.page.title"/></h2>
 <div class="aboutus">
 	<p>BGF abogados es un despacho integrado por profesionales
 		especializados en diversas ramas del derecho. Desempeñamos nuestra

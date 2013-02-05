@@ -6,17 +6,20 @@
 		http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
 
 	<!-- If not specified, the start state is the first state specified. -->
+	<action-state id="init">
+		<evaluate expression="contactusService.newForm()" result="flowScope.contactus" />
+		<transition to="enterContactusDetails" />
+	</action-state>
+	
 	<view-state id="enterContactusDetails" view="contacto" model="contactus">
-		<on-entry>
-			<evaluate expression="contactusService.newForm()" result="viewScope.contactus" />
-		</on-entry>
 		<transition on="send" to="confirmation">
-			<evaluate expression="contactusService.sendEmail(viewScope.contactus)" result="flowScope.deliveryStatus" />
+			<evaluate expression="contactusService.sendEmail(flowScope.contactus)" result="flowScope.deliveryStatus" />
 		</transition>
 	</view-state>
 	
 	<view-state id="confirmation" view="contacto-confirmacion">
 		<transition on="done" to="done" />
+		<transition on="back" to="enterContactusDetails" />
 	</view-state>
 
 	<!-- See http://forum.springframework.org/showthread.php?t=51240 -->

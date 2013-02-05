@@ -23,6 +23,16 @@
 		class="org.springframework.context.support.ResourceBundleMessageSource">
 		<property name="basename" value="messages" />
 	</bean>
+	
+	<!-- ================================================================== -->
+	<!-- Controllers -->
+	<!-- ================================================================== -->
+	
+	<!-- Default controller configuration -->
+	<bean class="es.bgfabogados.web.controller.impl.DefaultController.Configuration">
+		<property name="xmlConfigResource" value="/WEB-INF/tiles.xml" />
+		<property name="xPath" value="//definition[@extends=&quot;base.definition&quot;]/@name" />
+	</bean>
 
 	<!-- ================================================================== -->
 	<!-- Services -->
@@ -42,6 +52,7 @@
 		</property>
 		<property name="fromAddress" ref="webappAddress" />		
 		<property name="toAddress" ref="supportAddress" />
+		<property name="debugCommands" ref="contactusDebugCommand" />
 	</bean>
 
 	<!-- ================================================================== -->

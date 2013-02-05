@@ -59,6 +59,12 @@ public class ContactusServiceImpl {
 		private InternetAddress toAddress;
 
 		/**
+		 * Debug commands that can modify service behaviour for testing
+		 * purposes.
+		 */
+		private String debugCommands;
+
+		/**
 		 * Address from which email will be sent.
 		 */
 		private InternetAddress fromAddress;
@@ -124,16 +130,37 @@ public class ContactusServiceImpl {
 		}
 
 		/**
+		 * @return the debugCommands
+		 */
+		public String getDebugCommands() {
+			return debugCommands;
+		}
+
+		/**
+		 * @param debugCommands
+		 *            the debugCommands to set
+		 */
+		public void setDebugCommands(String debugCommands) {
+			this.debugCommands = debugCommands;
+		}
+
+		/**
+		 * @return the htmlTemplate
+		 */
+		public Resource getHtmlTemplate() {
+			return htmlTemplate;
+		}
+
+		/**
 		 * Check if the configuration is valid.
 		 * 
 		 * @return {@code  true} if it is valid.
 		 */
-		public boolean isValid() {
-			if (this.htmlTemplate == null || this.textTemplate == null
-					|| toAddress == null || fromAddress == null) {
-				return false;
-			}
-			return true;
+		public static boolean isValid(Configuration configuration) {
+			return configuration.htmlTemplate != null
+					&& configuration.textTemplate != null
+					&& configuration.toAddress != null
+					&& configuration.fromAddress != null;
 		}
 	}
 
@@ -194,7 +221,7 @@ public class ContactusServiceImpl {
 	 */
 	public void setConfiguration(
 			ContactusServiceImpl.Configuration configuration) {
-		if (configuration != null && !configuration.isValid()) {
+		if (!Configuration.isValid(configuration)) {
 			throw new IllegalArgumentException(
 					"The configuration is not valid. At least one property is null.");
 		} else {
@@ -221,11 +248,11 @@ public class ContactusServiceImpl {
 	public IDelivery sendEmail(ContactusFormImpl form) {
 
 		// Validate configuration
-		if (configuration == null || !configuration.isValid()) {
+		if (!Configuration.isValid(configuration)) {
 			throw new IllegalStateException(
 					"Configuration has not been properly set. It or any of its properties is null.");
 		}
-		
+
 		// Validate arguments
 		if (form == null) {
 			throw new IllegalArgumentException("Argument form cannot be null.");
@@ -243,12 +270,22 @@ public class ContactusServiceImpl {
 					"Argument form.comments cannot be null.");
 		}
 
+		// Debug - Command that enable us to test the error page.
+		if (configuration.getDebugCommands() != null
+				&& configuration.getDebugCommands().equals(form.getName())) {
+			IDelivery delivery = new DeliveryImpl();
+			delivery.setStatus(IDelivery.Status.Failed);
+			return delivery;
+		}
+
+		// Compose email
 		IEmail email = emailDelegate.newEmail();
 		email.setSender(configuration.fromAddress.getAddress());
 		email.setRecipient(configuration.toAddress.getAddress());
 		email.setSubject(form.getSubject());
 		email.setContent(getEmailContent(form));
 
+		// Send
 		IDelivery delivery = null;
 		try {
 			delivery = emailDelegate.send(email);
@@ -264,9 +301,10 @@ public class ContactusServiceImpl {
 	/**
 	 * Builds the content by inserting form data in loaded templates.
 	 * 
-	 * @param form Data received from view layer.
-	 * @return A new instance of {@link IEmailContent} or null if the form is null
-	 * or if templates are not available.
+	 * @param form
+	 *            Data received from view layer.
+	 * @return A new instance of {@link IEmailContent} or null if the form is
+	 *         null or if templates are not available.
 	 */
 	private IEmailContent getEmailContent(ContactusFormImpl form) {
 		if (form == null || emailTemplate == null) {
@@ -296,15 +334,18 @@ public class ContactusServiceImpl {
 		replacements.put(TOKEN_BODY, form.getComments());
 		return replacements;
 	}
-	
+
 	/**
 	 * Load email templates from resources set in configuration.
 	 * 
-	 * @throws IOException If templates could not be loaded.
+	 * @throws IOException
+	 *             If templates could not be loaded.
 	 */
 	@PostConstruct
 	private void loadTemplates() throws IOException {
-		emailTemplate.loadTextTemplate(configuration.getTextTemplate().getFilename());
-		emailTemplate.loadHtmlTemplate(configuration.getHtmlTemplatE().getFilename());
+		emailTemplate.loadTextTemplate(configuration.getTextTemplate()
+				.getFilename());
+		emailTemplate.loadHtmlTemplate(configuration.getHtmlTemplatE()
+				.getFilename());
 	}
 }

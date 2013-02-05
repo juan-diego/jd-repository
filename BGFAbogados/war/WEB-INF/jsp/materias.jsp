@@ -1,4 +1,5 @@
-<h2>Materias</h2>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<h2><fmt:message key="portfolio.page.title"/></h2>
 <div class="portfolio">
 	<h3 id="civil">Civil:</h3>
 	<div>
