@@ -20,28 +20,28 @@
 
 <title><fmt:message key="common.label.firm"/></title>
 
-<link href="css/bgfabogados.css" rel="stylesheet" type="text/css" />
+<link href="/css/bgfabogados.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 	<div class="container">
 		<div class="menu">
 			<ul>
-				<li><a href="index.xhtml"><fmt:message key="layout.menu.link.home"/></a></li>
-				<li><a href="quienes-somos.xhtml"><fmt:message key="layout.menu.link.aboutus"/></a></li>
-				<li><a href="materias.xhtml"><fmt:message key="layout.menu.link.portfolio"/></a></li>
-				<li><a href="localizacion.xhtml"><fmt:message key="layout.menu.link.location"/></a></li>
-				<li><a href="contacto.xhtml"><fmt:message key="layout.menu.link.contactus"/></a></li>
+				<li><a href="/"><fmt:message key="layout.menu.link.home"/></a></li>
+				<li><a href="/quienes-somos.xhtml"><fmt:message key="layout.menu.link.aboutus"/></a></li>
+				<li><a href="/materias.xhtml"><fmt:message key="layout.menu.link.portfolio"/></a></li>
+				<li><a href="/localizacion.xhtml"><fmt:message key="layout.menu.link.location"/></a></li>
+				<li><a href="/contacto.xhtml"><fmt:message key="layout.menu.link.contactus"/></a></li>
 			</ul>
 		</div>
 		<div class="header">
 			<h1><fmt:message key="common.label.firm"/></h1>
 		</div>
 		<div class="pictures">
-			<a href="materias.xhtml#civil"><img src="images/civil.jpg" alt="<fmt:message key="layout.page.image.civil_law"/>" /></a>
-			<a href="materias.xhtml#penal"><img src="images/penal.jpg" alt="<fmt:message key="layout.page.image.criminal_law"/>" /></a>
-			<a href="materias.xhtml#administrativo"><img src="images/administrativa.jpg" alt="<fmt:message key="layout.page.image.administrative_law"/>"/></a>
-			<a href="materias.xhtml#laboral"><img src="images/laboral.jpg" alt="<fmt:message key="layout.page.image.labor_law"/>"/></a>
-			<a href="materias.xhtml#mercantil"><img src="images/mercantil.jpg" alt="<fmt:message key="layout.page.image.commertial_law"/>" /></a>
+			<a href="materias.xhtml#civil"><img src="/images/civil.png" alt="<fmt:message key="layout.page.image.civil_law"/>" /></a>
+			<a href="materias.xhtml#penal"><img src="/images/penal.jpg" alt="<fmt:message key="layout.page.image.criminal_law"/>" /></a>
+			<a href="materias.xhtml#administrativo"><img src="/images/administrativa.jpg" alt="<fmt:message key="layout.page.image.administrative_law"/>"/></a>
+			<a href="materias.xhtml#laboral"><img src="/images/laboral.jpg" alt="<fmt:message key="layout.page.image.labor_law"/>"/></a>
+			<a href="materias.xhtml#mercantil"><img src="/images/mercantil.jpg" alt="<fmt:message key="layout.page.image.commertial_law"/>" /></a>
 		</div>
 		<div class="body">
 			<div class="bodyContainer">
